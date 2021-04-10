@@ -14,7 +14,7 @@ The database schema was constructed for following usecases:
 
 ## Database Model
 
-![db_diagram](images/schema_diagram.PNG "Database Diagram")
+![db_diagram](images/schema_diagram.png "Database Diagram")
 
 ## Tools and Technologies used
 The tools and technologies used:
