@@ -87,7 +87,7 @@ Use user= user and password= password to login to Airflow.
 - Conn Type: Enter Amazon Web Services.
 - Login: Enter your Access key ID from the IAM User credentials.
 - Password: Enter your Secret access key from the IAM User credentials.
-![aws_credentials](images/connections_detail.png)
+![aws_credentials](images/connection_detail.png)
 Once you've entered these values, select Save and Add Another.
 
 8. Create a Redshift cluster on AWS. On the next create connection page, enter the following values:
@@ -97,7 +97,7 @@ Once you've entered these values, select Save and Add Another.
 - Schema: Enter the Redshift database you want to connect to.
 - Password: Enter the password you created when launching your Redshift cluster.
 - Port: Enter 5439.
-![redshift](images/connections_detail_redshift.png)
+![redshift](images/connection_detail_redshift.png)
 Once you've entered these values, select Save.
 
 9. Run main_dag under DAGS by toggling its switch from off to on.
