@@ -1,4 +1,4 @@
-# Udacity Data Engineer Capstone Project: 
+# Udacity Data Engineering Capstone Project: Automated-Data-Pipeline
 ## Data pipeline for immigration,temperature and demographics information
 ## Goal of the project
 
@@ -14,7 +14,7 @@ The database schema was constructed for following usecases:
 
 ## Database Model
 
-![db_diagram](images/schema_diagram.PNG "Database Diagram")
+![db_diagram](images/schema_diagram.png "Database Diagram")
 
 ## Tools and Technologies used
 The tools and technologies used:
