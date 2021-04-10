@@ -1,0 +1,13 @@
+__pycache__/
+
+venv/
+
+*.ipynb/
+
+data_sas/
+
+logs/
+
+.env/
+
+GlobalLandTemperaturesByCity.csv/
