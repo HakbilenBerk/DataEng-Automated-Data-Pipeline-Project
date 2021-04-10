@@ -1,4 +1,4 @@
-# Udacity Data Engineer Capstone Project: 
+# Udacity Data Engineering Capstone Project: Automated-Data-Pipeline
 ## Data pipeline for immigration,temperature and demographics information
 ## Goal of the project
 
