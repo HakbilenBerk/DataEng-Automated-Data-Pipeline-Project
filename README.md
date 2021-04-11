@@ -16,6 +16,68 @@ The database schema was constructed for following usecases:
 
 ![db_diagram](images/schema_diagram.png "Database Diagram")
 
+The data is stored on a Redshift cluster on AWS. The Redshift contains the staging tables which serve the purpose of hold the data from JSON files in S3 Bucket. Redshift cluster also contains a fact table called immigrations where immigration/travel information of individuals are listed. I used immigrations as the fact table where through the city attribute the queries can be extraploted to other dimension tables such as demographics, temperature and visa details to obtain further correlations between the immigration/travel information. I opted for the star schema to optimize the database for Online Analytical Processing (OLAP).
+
+## Database Dictionary
+
+Please refer to "Airflow/data/I94_SAS_Labels_Descriptions.SAS" for abbreviations.
+
+### Immigration Fact Table
+
+| Table Column | Data Type | Description |
+| -------- | ------------- | --------- |
+| immigration_id (PRIMARY_KEY) | numeric  | immigration id number|
+|  year | numeric | year of immigration |
+| month | numeric | month of immigration |
+| country_code | numeric | country of immigrant |
+| city_code | varchar | arrival city |
+| arrival_date | numeric |  date of arrival |
+| travel_mode | numeric | type of travel(sea, air...) |
+| state  | varchar | arrival state |
+| age | numeric | age of immigrant |
+| gender | varchar | gender of immigrant |
+| flight_no | varchar | Flight number |
+
+### Visa Details Dimension Table
+
+| Table Column | Data Type | Description |
+| -------- | ------------- | --------- |
+| visa_id (PRIMARY_KEY) | numeric  | visa id number - auto generated|
+| travel_purpose | numeric | purpose of travel |
+| admission_number | numeric | admission number |
+| visa_type | varchar | type of the visa |
+| visa_expiration | varchar | Expiry date of the visa |
+
+### Temperature Dimension Table
+
+| Table Column | Data Type | Description |
+| -------- | ------------- | --------- |
+| temp_id (PRIMARY_KEY) | varchar  | temperature id number |
+| date | date | date of measurement |
+| ave_temp | numeric | average temperature that day |
+| city | varchar | city of measurement |
+| country | varchar | country of measurement |
+| latitude | varchar | latitude of measurement |
+| longitude | varchar | longitude of measurement |
+
+### Demographics Dimension Table
+
+| Table Column | Data Type | Description |
+| -------- | ------------- | --------- |
+| demo_id (PRIMARY_KEY) | varchar | demographics id |
+| city | varchar | city |
+| state | varchar | state |
+| median_age | numeric | median of the age of population |
+| male_population | numeric | male population |
+| female_population | numeric | female population |
+| total_population | numeric | total population |
+| foreign_born  | numeric | number of foreign-born residents |
+| ave_household_size | numeric | the average number of household |
+| state_code | varchar | code of the state the city is located in |
+| race | varchar | name of a specific race |
+| count | numeric | number of residents of that specific race |
+
+
 ## Tools and Technologies used
 The tools and technologies used:
 - __Apache Spark__ - Spark was used to read in the large data from SAS and CSV source files, clean them rewrite them in S3 bucket as JSON files.
