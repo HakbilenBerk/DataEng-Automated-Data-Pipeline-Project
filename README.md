@@ -1,4 +1,7 @@
 # Udacity Data Engineering Capstone Project: Automated-Data-Pipeline
+
+**Project by Berk Hakbilen**
+
 ## Data pipeline for immigration,temperature and demographics information
 ## Goal of the project
 
